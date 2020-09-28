@@ -14,7 +14,7 @@ load_dotenv()
 
 class GmailAdapter:
   def __init__(
-    selt, 
+    self, 
     host:str, 
     port:int, 
     username:str, 
@@ -32,3 +32,12 @@ class GmailAdapter:
   
   def __del__(self):
     self.server.close()
+
+mailer = GmailAdapter(
+  host='smtp.gmail.com',
+  port=465,
+  username=getenv('USERMAIL'),
+  password=getenv('PASSWORD')
+)
+
+mailer.login()
