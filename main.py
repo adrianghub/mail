@@ -2,11 +2,8 @@
 from dotenv import load_dotenv
 from os import getenv
 
-# templates
-import jinja2
-
 from gmail_adp import GmailAdapter
-
+from messages import ClickbaitMessage
 
 load_dotenv()
 
@@ -16,6 +13,12 @@ mailer = GmailAdapter(
   username=getenv('USERMAIL'),
   password=getenv('PASSWORD')
 )
-
 mailer.login()
-mailer.send_mail('zinko.adrian00@gmail.com', 'You won 1000$!', '<h1>Hello, brother</h1>')
+
+clickbait = ClickbaitMessage()
+
+mailer.send_mail(
+  recipient_email='zinko.adrian00@gmail.com', 
+  subject='You won 1000$!', 
+  content=clickbait.render(name='Bruhhh')
+  )
