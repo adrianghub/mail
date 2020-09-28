@@ -1,5 +1,4 @@
 # mail sending
-import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -10,28 +9,10 @@ from os import getenv
 # templates
 import jinja2
 
+from gmail_adp import GmailAdapter
+
+
 load_dotenv()
-
-class GmailAdapter:
-  def __init__(
-    self, 
-    host:str, 
-    port:int, 
-    username:str, 
-    password:str
-  ):
-  self.host = host
-  self.port = port
-  self.username = username
-  self.password = password
-  self.server = smtplib.SMTP_SSL(host, post)
-
-  def login(self): 
-    self.server.ehlo()
-    self.server.login(self.username, self.password)
-  
-  def __del__(self):
-    self.server.close()
 
 mailer = GmailAdapter(
   host='smtp.gmail.com',
