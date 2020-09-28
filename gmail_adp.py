@@ -32,7 +32,7 @@ class GmailAdapter:
     message['From'] = self.username
     message['To'] = recipient_email
     message.attach(
-      MIMEText(content)
+      MIMEText(content, 'html')
     )
     return message
   

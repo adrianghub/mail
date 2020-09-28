@@ -18,3 +18,4 @@ mailer = GmailAdapter(
 )
 
 mailer.login()
+mailer.send_mail('zinko.adrian00@gmail.com', 'You won 1000$!', '<h1>Hello, brother</h1>')
