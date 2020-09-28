@@ -1,7 +1,3 @@
-# mail sending
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-
 # env variables
 from dotenv import load_dotenv
 from os import getenv
